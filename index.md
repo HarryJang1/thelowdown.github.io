@@ -5,9 +5,9 @@
 </head>
 <body>
 
-  <h1>Template</h1>
+  <h1>The Lowdown 2.0</h1>
   
-  <p>This is a blank template for a web page.</p>
+  <p>Coming Soon</p>
   
 </body>
 </html>
