@@ -1,6 +1,6 @@
 <html>
 <head>
-
+  <link rel="stylesheet" href="https://thelowdown.me/css/main.css">
 </head>
   
 <body>
