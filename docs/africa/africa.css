@@ -17,6 +17,9 @@ h1 {
 /*Navigation Bar*/
 .topnav {
     overflow: hidden;
+  
+  display: flex;
+  justify-content: center;
 }
 
 .topnav a {
