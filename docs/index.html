@@ -22,6 +22,20 @@
             <a href="africa">Africa</a>
 
         </div>
+        
+        <script>
+            
+            const preFix = "https://spreadsheets.google.com/feeds/list/";
+            const sheetID = "1artsEWGxkS_Y0ZHRQ9qH1B_7NiknKaSNxhzlldPJUeQ";
+            const postFix = "/od6/public/values?alt=json";
+            
+            const spreadsheetURL = preFix + sheetID + postFix;
+            
+            $.getJSON(spreadsheetURL, function(data){
+                console.log(data);
+            }
+            
+        </script>
 
         <p>UNSW Diplomacy and International Affairs Society</p>
 
