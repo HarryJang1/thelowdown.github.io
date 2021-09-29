@@ -1,11 +1,10 @@
-import { google } from 'googleapis';
+import {google} from 'googleapis';
 
 //Back-end
 export async function getServerSideProps({query}) {
 
     //Authentication
     const auth = await google.auth.getClient({scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly']});
-    //         ^ISSUE
 
     const sheets = google.sheets({version: 'v4', auth});
 
@@ -44,12 +43,13 @@ export default function Post({title, publishingDate, countryCode, region, image,
 imageCredit, content, authorName, authorProfilePicture,correspondentForRegion}) {
     return <article>
         <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{__html: content}}></div>
 
         <image>{image}</image>
 
         <h3>{publishingDate}</h3>
 
-        <div dangerouslySetInnerHTML={{__html: content}}></div>
+        <h2>{content}</h2>
 
     </article>
 }
