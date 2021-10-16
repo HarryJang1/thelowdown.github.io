@@ -5,12 +5,13 @@ export async function getServerSideProps({query}) {
 
     //Authentication
     const auth = await google.auth.getClient({scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly']});
+    //          ^ISSUE
 
     const sheets = google.sheets({version: 'v4', auth});
 
     //Query
     const {id} = query;
-    const range = 'Database!A${id}:K${id}';
+    const range = 'Sheet1!A${id}:K${id}';
 
     const response = await sheets.spreadsheets.values.get({
         spreadsheetId: process.env.SHEET_ID,
