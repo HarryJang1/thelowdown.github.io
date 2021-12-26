@@ -21,7 +21,6 @@ export async function getServerSideProps({query}) {
     const [title, publishingDate, countryCode, region, image, imageCredit, 
     content, authorName, authorProfilePicture, correspondentForRegion] = response.data.values[0];
 
-
     return {
         props: {
             title,
