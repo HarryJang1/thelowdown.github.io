@@ -1,4 +1,5 @@
 import { google } from 'googleapis';
+import Image from 'next/image';
 
 //Back-end
 export async function getServerSideProps({query}) {
@@ -10,7 +11,7 @@ export async function getServerSideProps({query}) {
 
     //Query
     const { id } = query;
-    const range = `Database!A${id}:K${id}`;
+    const range = `Database!B${id}:K${id}`;
 
     const response = await sheets.spreadsheets.values.get({
         spreadsheetId: process.env.SHEET_ID,
@@ -40,14 +41,19 @@ export async function getServerSideProps({query}) {
 //Front-end
 export default function Post({title, publishingDate, countryCode, region, image, 
 imageCredit, content, authorName, authorProfilePicture,correspondentForRegion}) {
-    return <article>
+    return <article margin="500">
         <h1>{title}</h1>
+        <h2>{countryCode} - {region}</h2>
 
-        <image>{image}</image>
+        <Image src={image} width="700" height="700"></Image>
+        <p>Source: {imageCredit}</p>
 
-        <h3>{publishingDate}</h3>
+        <p>Published Date: {publishingDate}</p>
+        <break></break>
+        <p>{content}</p>
 
-        <div dangerouslySetInnerHTML={{__html: content}}></div>
+        <h4>{authorName} - {correspondentForRegion}</h4>
+        <Image src={authorProfilePicture} width="100" height="100"></Image>
 
     </article>
 }
